@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creating a form</title>
+</head>
+<body bgcolor="grey" leftmargin="50x" topmargin="50px">
+<b><font color = "White">
+  <form>
+    <fieldset style="border: 15%;">
+      <legend>Personal info</legend>
+    <label>First Name: </label>
+    <input type="text" name="name" placeholder="Enter your first name">
+    <br>
+    <label>Last Name: </label>
+    <input type="text" name="name" placeholder="Enter your last name">
+    </fieldset><br>
+    <fieldset>
+      <legend>Course info</legend>
+      <label>Course</label><br>
+      <!-- Ratio buttons -->
+      <input type="radio"  name="course" value="Web Design">Web Design <br>
+      <input type="radio"  name="course" value="SQL">SQL <br>
+      <input type="radio"  name="course" value="Programming">Programming <br>
+      <br>
+      <label> Career Goal:</label>
+      <!-- Combo box --> <br>
+      <select name="career" style="width: 20%; height: 45px; border-radius: 17%;">
+        <option value="">Select a career</option>
+        <option value="Web Developer">Web Developer</option>
+        <option value="Web Designer">Web Designer</option>
+        <option value="Database Administrator">Database Administrator</option>
+        <option value="Software Engineer">Software Engineer</option>
+      </select>
+      <br><br>
+      <label>Skills</b> (check all that apply):<b></label>
+        <!-- Checkbox --> <br>
+        <input type="checkbox" name="skills" value="HTML">HTML &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="checkbox" name="skills" value="CSS">CSS <br>
+        <input type="checkbox" name="skills" value="JavaScript">JavaScript
+        <input type="checkbox" name="skills" value="PHP">PHP <br>
+    
+        <label>Describe about yourself:</label><br>
+        <textarea name="description" rows="5" cols="50" placeholder="Enter your description"></textarea>
+      </fieldset> <br>
+    <center>
+      <input type="submit" value="Enter my information" style="padding: 15px;">
+    </center>
+  </form>
+  </font>
+</b>
+</body>
+</html>
