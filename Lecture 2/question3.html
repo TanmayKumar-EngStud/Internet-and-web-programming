@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Registeration</title>
+</head>
+<body bgcolor = "#cc6699">
+  <form>
+    <fieldset style="position : relative; border-radius: 15%;">
+      <legend>
+        <img src="login-logo.png" width="20px;"> User Details
+      </legend>
+      <center>
+
+      <table cellspacing = "10" bgcolor = "yellow" style= "border-radius: 5%;" cellpadding = "5px">
+        <tr>
+          <td>
+            <label for="name">First Name :</label>
+          </td>
+          <td>
+            <input type="text" name="Name" style = "width: 100%;">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="name">Last Name : </label>
+          </td>
+          <td>
+            <input type="text" name="Name" style="width: 100%;">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="DOB">Your Date of birth :</label>
+          </td>
+          <td>
+            <input type="date" name="date" id="DOB" style= "width:100%"> 
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label >Your Email :</label>
+          </td>
+          <td>
+            <input type="email" name="Name" style = "width: 70%;"> <input type="button" value="Verify" style = "padding: 2%; border-radius:15%; border: none;">
+          </td>
+        </tr>
+      </table>
+      </center>
+    </fieldset><br>
+    <fieldset style = "border-radius: 5%0;">
+      <legend> 
+        <img src="login-logo.png" width="20px;"> User Registeration
+      </legend>
+      <center>
+        <table cellspacing = "10">
+          <tr>
+          <td><label>New Username:    </label></td> 
+          <td><input type="text" name="Name" id="UserName"></td>
+          </tr>
+          <tr>
+            <td><label>New Password:    </label> </td>
+            <td><input type="password" name="Name" id="Password"></td>
+          </tr>
+          <tr>
+            <td><label>Confirm Password:</label></td>
+            <td><input type="password" name="Name" id="Password"></td>
+        </tr>
+        </table>
+        <br>
+      <input type="submit" value="Submit" style="padding: 1%; border-radius : 15%; border: none;">
+    </center>
+    </fieldset> <br>
+
+    <center>
+      <fieldset style ="border-radius : 15%; width: 70%;">
+        <legend><img src="book-logo.png" width = "20px"> Course selection</legend>
+        <table cellspacing = "15px;" cellpadding = "5px;">
+          <tr>
+            <th colspan="2">
+              <label for="Course">What course are you interested in?</label>
+            </th>
+          </tr>
+          <tr>
+            <td>
+              <input type="radio" name="Course" value="Web Development"> Web Development
+            </td>
+            <td>
+              <input type="radio" name="Course" value="Mobile Development"> Mobile Development
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="radio" name="Course" value="Data Science"> Data Science
+            </td>
+            <td>
+              <input type="radio" name="Course" value="Data Analytics"> Data Analytics
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <label for="additional">Need Certification : </label>
+            </th>
+            <td>
+              <input type="checkbox" name="additional" value="Yes"> Yes
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <center>
+                <input type="submit" value="Submit" style="padding: 2%; border-radius : 15%; border: none;">
+              </center>
+            </td>
+          </tr>
+        </table>
+      </fieldset>
+    </center>
+  </form>
+  <form>
+  <br>
+  <div>
+    <footer>
+      <center>
+        <label>Feedback</label><br>
+        <textarea name="feedback" rows="5" cols="50" style="margin-top: 7px;"></textarea>
+      </center>
+  </div>
+</form>
+</body>
+</html>
