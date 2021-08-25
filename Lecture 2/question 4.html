@@ -1,14 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image Mapping</title>
+<title> JavaScript Image Map </title>
+<script>
+function show(name) {
+document.my.res.value = name;
+}
+</script>
 </head>
-<body>
-  <h1>Image Mapping</h1>
-  <img src="book-logo.png">
+
+<body style = "text-align: center;">
+<h1>Image mapping of monkie 🐒</h1>
+
+<br>
+<img src = "https://ichef.bbci.co.uk/news/976/cpsprodpb/E9DF/production/_96317895_gettyimages-164067218.jpg" border = "5" usemap = "#names" height = "300px"/>
+
+<map name = "names">
+  <area shape = "rect" coords = "123, 93, 194, 141" href = "https://www.istockphoto.com/photos/monkey-hand" onclick = "show('This is the hand of monkie')" />
+  <area shape = "rect" coords = "205, 85, 310, 202" href = "https://www.shutterstock.com/search/monkey+face" onclick = "show('Monkie Face')" />
   
+  <area shape = "circle" coords = "150, 71, 18" href = "https://www.shutterstock.com/search/monkey+ears" onclick = "show('Monkie Ears')" />
+</map>
 </body>
 </html>
