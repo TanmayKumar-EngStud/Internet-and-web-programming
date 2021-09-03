@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var num = window.prompt("Enter the number");
+      var arr = new Array();
+      arr.push(num);
+      while (num != null) {
+        var num = window.prompt("Enter the number again");
+        for (var i = 0; i < arr.length; i++) {
+          if (num == arr[i]) {
+            alert("Duplicate");
+            break;
+          }
+          if (i == arr.length - 1 && num != arr[i]) {
+            arr.push(num);
+            alert("Unique");
+            break;
+          }
+        }
+        console.log(arr);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Function to find average of grades
+      function average(grades) {
+        var sum = 0;
+        for (var i = 0; i < grades.length; i++) {
+          sum += grades[i];
+        }
+        return sum / grades.length;
+      }
+      let num = 0;
+      while (num != null) {
+        num = prompt("Name");
+        if (num == null) {
+          break;
+        }
+        document.write("Name   : " + num + "<br>");
+        num = prompt("RegNo");
+        document.write("RegNo  : " + num + "<br>");
+        num = prompt("Enter your Marks").split(",");
+
+        for (i = 0; i < num.length; i++) {
+          num[i] = parseInt(num[i]);
+        }
+        console.log(num);
+        document.write("Marks  : " + num + "<br>");
+        document.write("Average: " + average(num) + "<br>");
+      }
+    </script>
+  </body>
+</html>
