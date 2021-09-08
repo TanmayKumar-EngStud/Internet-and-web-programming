@@ -16,23 +16,35 @@
         }
         return sum / grades.length;
       }
-      let num = 0;
-      while (num != null) {
-        num = prompt("Name");
-        if (num == null) {
+      let name = 0;
+      while (name != null) {
+        name = prompt("Name");
+        if (name == null) {
           break;
         }
-        document.write("Name   : " + num + "<br>");
-        num = prompt("RegNo");
-        document.write("RegNo  : " + num + "<br>");
-        num = prompt("Enter your Marks").split(",");
 
-        for (i = 0; i < num.length; i++) {
-          num[i] = parseInt(num[i]);
+        regno = prompt("RegNo");
+
+        marks = prompt("Enter your Marks").split(",");
+
+        for (i = 0; i < marks.length; i++) {
+          marks[i] = parseInt(marks[i]);
         }
-        console.log(num);
-        document.write("Marks  : " + num + "<br>");
-        document.write("Average: " + average(num) + "<br>");
+        console.log(marks);
+        alert(
+          "Name    : " +
+            name +
+            "\nRegNo   : " +
+            regno +
+            "\nMarks   : " +
+            marks +
+            "\nAverage : " +
+            average(marks)
+        );
+        document.write("Name   : " + name + "<br>");
+        document.write("RegNo  : " + regno + "<br>");
+        document.write("Marks  : " + marks + "<br>");
+        document.write("Average: " + average(marks) + "<br>");
       }
     </script>
   </body>

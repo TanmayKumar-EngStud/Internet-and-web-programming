@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BMI Reporter</title>
+  </head>
+  <body>
+    <script>
+      var weight, height;
+      i = 1;
+      while (i < 5) {
+        weight = parseFloat(prompt("Enter Weight in Kgs"));
+        if (weight == null) {
+          break;
+        }
+
+        height = parseFloat(prompt("Enter Height in meters"));
+        var bmi = weight / (height * height);
+        if (bmi < 16) {
+          window.alert("Seriously underweight");
+
+          document.write(i + ". BMI is " + bmi + "<br>");
+          document.write("  Height is: " + height + "<br>");
+          document.write("  Weight is: " + weight + "<br>");
+          document.write("  Seriously underweight<br>");
+        } else if (18 > bmi && bmi > 16) {
+          window.alert("Underweight");
+          document.write(i + ". BMI is " + bmi + "<br>");
+          document.write("  Height is: " + height + "<br>");
+          document.write("  Weight is: " + weight + "<br>");
+          document.write("  Underweight<br><br>");
+        } else if (bmi > 18 && 24 > bmi) {
+          window.alert("  Normal weight");
+          document.write(i + ". BMI is " + bmi + "<br>");
+          document.write("  Height is: " + height + "<br>");
+          document.write("  Weight is: " + weight + "<br>");
+          document.write("  Normal weight<br><br>");
+        } else if (29 > bmi && bmi > 24) {
+          window.alert("Overweight");
+          document.write(i + ". BMI is " + bmi + "<br>");
+          document.write("  Height is: " + height + "<br>");
+          document.write("  Weight is: " + weight + "<br>");
+          document.write("  Overweight<br><br>");
+        } else if (29 > bmi && bmi > 24) {
+          window.alert("Seriously Overweight");
+          document.write(i + ". BMI is " + bmi + "<br>");
+          document.write("  Height is: " + height + "<br>");
+          document.write("  Weight is: " + weight + "<br>");
+          document.write("  Seriously Overweight<br><br>");
+        } else if (bmi > 35) {
+          window.alert("Gravely Overveight");
+          document.write(i + ". BMI is " + bmi + "<br>");
+          document.write("  Height is: " + height + "<br>");
+          document.write("  Weight is: " + weight + "<br>");
+          document.write("  Gravely Overveight<br><br>");
+        }
+        i++;
+      }
+    </script>
+  </body>
+</html>
