@@ -1,0 +1,39 @@
+/* This CSS file is 
+only for question 3 Lecture 3 */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  background-image: url(https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/fad00a8f585a9d2acbffa47017e2042c-1603522287/Smallfry_Cainte5/create-and-upload-a-custom-gif-for-instagram-and-giphy.gif),
+    linear-gradient(to bottom, #ff7171 0%, #ec978c 100%);
+  background-repeat: no-repeat;
+}
+
+.LOL {
+  background-color: #e2cccc67;
+  margin: 52px 0px 0px 12px;
+  position: relative;
+  width: 40%;
+  padding: 15px;
+  border-radius: 10px;
+  left: 50%;
+}
+
+.LMAO {
+  background-color: #e2cccc7e;
+  margin: 10px 0px 0px 12px;
+  position: relative;
+  width: 40%;
+  padding: 15px;
+  border-top: 5px dotted #2c2929;
+  /* Border Bottom will have smaller dash lines */
+  border-bottom: 5px dashed #2c2929;
+  border-right: 5px solid #2c2929;
+  border-left: 5px double #2c2929;
+  left: 50%;
+}
