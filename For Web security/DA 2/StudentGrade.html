@@ -1,0 +1,105 @@
+<html>
+  <head>
+    <title>Tanmay Kumar 19BCE2146</title>
+  </head>
+  <script language="JavaScript">
+    var students = [];
+    function enterStudent() {
+      var nameStudent = document.marks.name.value;
+      var reg = document.marks.regno.value;
+      var a = parseInt(document.marks.marka.value);
+      var b = parseInt(document.marks.markb.value);
+      var c = parseInt(document.marks.markc.value);
+      var d = parseInt(document.marks.markd.value);
+      var e = parseInt(document.marks.marke.value);
+      var total = a + b + c + d + e;
+      var avg = total / 5;
+      var s = {
+        name: nameStudent,
+        reg: reg,
+        arr: [a, b, c, d, e],
+        total: total,
+        avg: avg,
+      };
+      students.push(s);
+      console.log(students);
+      document.getElementById("output").innerHTML =
+        document.getElementById("output").innerHTML +
+        "<br><br>" +
+        "Name: " +
+        s.name +
+        "<br> Reg No:" +
+        s.reg +
+        "<br> Total: " +
+        s.total +
+        "<br> Average: " +
+        s.avg +
+        "<br>Marks were: " +
+        s.arr[0] +
+        ", " +
+        s.arr[1] +
+        ", " +
+        s.arr[2] +
+        ", " +
+        s.arr[3] +
+        ", " +
+        s.arr[4];
+    }
+  </script>
+  <body>
+    <center>
+      <h1>Student Grades</h1>
+
+      <form name="marks">
+        <table cellpadding="5px">
+          <tr>
+            <td>Name :</td>
+            <td><input type="text" name="name" required /></td>
+          </tr>
+          <tr>
+            <td>Register Number :</td>
+            <td><input type="text" name="regno" required /></td>
+          </tr>
+          <tr>
+            <td>Mark in Subject_A :</td>
+            <td><input type="text" name="marka" required /></td>
+          </tr>
+          <tr>
+            <td>Mark in Subject_B :</td>
+            <td><input type="text" name="markb" required /></td>
+          </tr>
+          <tr>
+            <td>Mark in Subject_C :</td>
+            <td><input type="text" name="markc" required /></td>
+          </tr>
+          <tr>
+            <td>Mark in Subject_D :</td>
+            <td><input type="text" name="markd" required /></td>
+          </tr>
+          <tr>
+            <td>Mark in Subject_E :</td>
+            <td><input type="text" name="marke" required /></td>
+          </tr>
+          <tr>
+            <td rowspan="2" colspan="2">
+              <center>
+                <input
+                  type="button"
+                  value="Enter Student"
+                  onClick="enterStudent()"
+                  style="
+                    font-weight: 900;
+                    font-size: larger;
+                    padding: 5px 15px;
+                    border-radius: 99px;
+                  "
+                />
+              </center>
+            </td>
+          </tr>
+        </table>
+      </form>
+      <p id="output"></p>
+    </center>
+  </body>
+</html>
