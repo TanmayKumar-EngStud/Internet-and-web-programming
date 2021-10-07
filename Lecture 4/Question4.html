@@ -1,0 +1,116 @@
+<html>
+  <head>
+    <title>Tanmay Kumar 19BCE2146</title>
+  </head>
+  <script language="JavaScript">
+    var custInfo = [];
+    function calculateCharges() {
+      var cName = document.form.name.value;
+      var a = parseInt(document.form.hrs.value);
+      var chargingSceme = {
+        for3Hrs: 2,
+        AdditionalCharges: 0.5,
+        MaxCharge: 10,
+      };
+      charge = 0;
+      if (a > 3) {
+        charge =
+          3 * chargingSceme.for3Hrs + (a - 3) * chargingSceme.AdditionalCharges;
+      } else {
+        charge = a * chargingSceme.for3Hrs;
+      }
+      if (charge > chargingSceme.MaxCharge) {
+        charge = chargingSceme.MaxCharge;
+      }
+      var c = {
+        name: cName,
+        hours: a,
+        charge: charge,
+      };
+      custInfo.push(c);
+      document.getElementById("SudoCharges").innerHTML +=
+        '<div style ="flex:1; max-width:300px; padding:15px; border: 2px solid black; border-radius: 2px; margin: 15px" >' +
+        "Customer Name: " +
+        c.name +
+        "<br>Hours: " +
+        c.hours +
+        "<br>Charge: " +
+        c.charge +
+        "</div>";
+    }
+    function CheckResult() {
+      var total = 0;
+      for (var i = 0; i < custInfo.length; i++) {
+        total += custInfo[i].charge;
+      }
+      document.getElementById("output").innerHTML = "Total Charges: " + total;
+    }
+  </script>
+  <body>
+    <center>
+      <h1>Parking Garage Service</h1>
+
+      <form name="form">
+        <table cellpadding="5px">
+          <tr>
+            <td>Customer Name :</td>
+            <td><input type="text" name="name" required /></td>
+          </tr>
+          <tr></tr>
+          <tr>
+            <td>Number of hours parked :</td>
+            <td><input type="text" name="hrs" required /></td>
+          </tr>
+          <tr>
+            <td rowspan="2" colspan="2">
+              <center>
+                <input
+                  type="button"
+                  value="Register Details"
+                  onClick="calculateCharges()"
+                  style="
+                    font-weight: 900;
+                    font-size: larger;
+                    padding: 5px 15px;
+                    border-radius: 99px;
+                  "
+                />
+              </center>
+            </td>
+          </tr>
+        </table>
+      </form>
+      <div
+        id="SudoCharges"
+        style="
+          display: flex;
+          justify-content: space-around;
+          width: 100%;
+          min-height: fit-content;
+        "
+      ></div>
+      <button
+        style="
+          display: flex;
+          justify-content: center;
+          font-weight: 900;
+          font-size: larger;
+          padding: 5px 15px;
+          border-radius: 99px;
+        "
+        onclick="CheckResult()"
+      >
+        Calculate Total Income
+      </button>
+      <p
+        id="output"
+        style="
+          display: flex;
+          justify-content: space-around;
+          width: 100%;
+          min-height: fit-content;
+        "
+      ></p>
+    </center>
+  </body>
+</html>

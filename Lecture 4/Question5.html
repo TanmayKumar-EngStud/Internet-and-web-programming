@@ -1,0 +1,86 @@
+<!-- Develop a word decoder challenge game using HTML, CSS and JavaScript. Present
+the player with a set of scrambled word & hint and challenge him to unscramble
+them. For each attempt randomly select a word, refresh the browser window
+dynamically and display the scrambled word in red. Once the player thinks the word
+has been properly decoded, he clicks on the Check Answer button to see the results. If 
+the answer is correct, the player is notified via a success message displayed in a
+popup dialog window or displays a failure message. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tanmay Kumar 19BCE2146</title>
+  </head>
+  <body>
+    <h1>Word Decoder</h1>
+    <p>
+      <b>Hint:</b>
+      <span id="hint">
+        <?php
+          $hint = "";
+          if ($random_word == "") {
+            $hint = "";
+          } else {
+            $hint = "";
+            for ($i = 0; $i < strlen($random_word); $i++) {
+              $hint .= "_ ";
+            }
+          }
+          echo $hint;
+        ?>
+      </span>
+    </p>
+    <p>
+      <b>Word:</b>
+      <span id="word">
+        <?php
+          if ($random_word == "") {
+            echo "";
+          } else {
+            echo $random_word;
+          }
+        ?>
+      </span>
+    </p>
+    <p>
+      <b>Guess:</b>
+      <input type="text" id="guess" />
+    </p>
+    <p>
+      <button onclick="checkAnswer()">Check Answer</button>
+    </p>
+    <p id="result"></p>
+    <script>
+      var random_word = "<?php echo $random_word; ?>";
+      var hint = "<?php echo $hint; ?>";
+      var guess = "";
+      var word = "";
+      var result = "";
+      var guess_count = 0;
+      var guess_limit = 5;
+
+      function checkAnswer() {
+        guess = document.getElementById("guess").value;
+        word = document.getElementById("word").innerHTML;
+        result = document.getElementById("result");
+        result.innerHTML = "";
+
+        if (guess_count < guess_limit && guess != "") {
+          if (guess == random_word) {
+            result.innerHTML = "Correct! The word is " + random_word;
+          } else {
+            result.innerHTML =
+              "Wrong! The word is " + random_word + "<br />" + "Hint: " + hint;
+          }
+          guess_count++;
+        } else if (guess_count == guess_limit) {
+          result.innerHTML = "You lost! The word is " + random_word;
+        } else {
+          result.innerHTML = "";
+        }
+      }
+    </script>
+  </body>
+</html>
