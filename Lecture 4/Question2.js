@@ -12,3 +12,4 @@ arr = [
   23, 24, 25, 26, 27, 28, 29, 30,
 ];
 console.log(count(arr, 30));
+//Counting numbers between 13 and 29
