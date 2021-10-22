@@ -1,273 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta name="viewport" content="width=100%" />
-    <link
-      rel="stylesheet"
-      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
-    />
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <link rel="stylesheet" type="text/css" href="19BCE2459_Q11.css" />
-    <meta charset="utf-8" />
-    <title>CHALDEAN NUMEROLOGY</title>
-    <script language="javascript" type="text/javascript">
-      var testName;
-      var testNameUpper;
-      var NumEQ;
-      var NumStr;
-      var testNum;
-      var NumStrMod; //stores modulo 9 of numberstring
-      var EquivalentNumber;
-      function GetRoot() {
-        DRNumberSTRINGARRAY = testNum.split(""); // splits number into an array of single digits
-        var FirstRoot = 0;
-        DRNumberSTRINGARRAY.forEach(function (value) {
-          FirstRoot += parseInt(value);
-        }); // sums each member of array parseInt converts array to numbers first
-        NumStrMod = 1 + ((FirstRoot - 1) % 9); //gets the number string and converts it to numbers then does modulo 9 to get number root stores it in variable NSR
-      }
-      function Chaldean() {
-        // converts the letters to numbers
-        testNum = testNameUpper.replace(/A/g, 1); // converts the letters to numbers
-        testNum = testNum.replace(/B/g, 2);
-        testNum = testNum.replace(/C/g, 3);
-        testNum = testNum.replace(/D/g, 4);
-        testNum = testNum.replace(/E/g, 5);
-        testNum = testNum.replace(/F/g, 8);
-        testNum = testNum.replace(/G/g, 3);
-        testNum = testNum.replace(/H/g, 5);
-        testNum = testNum.replace(/I/g, 1);
-        testNum = testNum.replace(/J/g, 1);
-        testNum = testNum.replace(/K/g, 2);
-        testNum = testNum.replace(/L/g, 3);
-        testNum = testNum.replace(/M/g, 4);
-        testNum = testNum.replace(/N/g, 5);
-        testNum = testNum.replace(/O/g, 7);
-        testNum = testNum.replace(/P/g, 8);
-        testNum = testNum.replace(/Q/g, 1);
-        testNum = testNum.replace(/R/g, 2);
-        testNum = testNum.replace(/S/g, 3);
-        testNum = testNum.replace(/T/g, 4);
-        testNum = testNum.replace(/U/g, 6);
-        testNum = testNum.replace(/V/g, 6);
-        testNum = testNum.replace(/W/g, 6);
-        testNum = testNum.replace(/X/g, 5);
-        testNum = testNum.replace(/Y/g, 1);
-        testNum = testNum.replace(/Z/g, 7);
-      }
-      function fetchMeaning() {
-        // looks up a meaning for a number in the range 1 to 9
-        if (numCalc.NumberRoot.value == 1) {
-          numCalc.SigNum.value =
-            "You radiate with a dynamic and efficient energy.";
-        } else if (numCalc.NumberRoot.value == 2) {
-          numCalc.SigNum.value =
-            "You radiate with a dynamic and efficient energy.";
-        } else if (numCalc.NumberRoot.value == 3) {
-          numCalc.SigNum.value = "You are uplifting, inspiring, and charming.";
-        } else if (numCalc.NumberRoot.value == 4) {
-          numCalc.SigNum.value =
-            "You love the intimacy, consistency, and the security a family provides";
-        } else if (numCalc.NumberRoot.value == 5) {
-          numCalc.SigNum.value = "You are a stimulating person";
-        } else if (numCalc.NumberRoot.value == 6) {
-          numCalc.SigNum.value = "You radiate understanding and compassion";
-        } else if (numCalc.NumberRoot.value == 7) {
-          numCalc.SigNum.value = "You seem mysterious and different";
-        } else if (numCalc.NumberRoot.value == 8) {
-          numCalc.SigNum.value = "You appear strong and powerful.";
-        } else if (numCalc.NumberRoot.value == 9) {
-          numCalc.SigNum.value =
-            "You have an impressive and aristocratic bearing.";
-        } else {
-          numCalc.SigNum.value = "?";
-        }
-      }
-    </script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>19BCE2146 Tanmay Kumar</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
+      var wDictionary = {
+        A: 1,
+        J: 1,
+        S: 3,
+        B: 2,
+        K: 2,
+        T: 4,
+        C: 3,
+        L: 3,
+        U: 6,
+        D: 4,
+        M: 4,
+        V: 6,
+        E: 5,
+        N: 5,
+        W: 6,
+        F: 8,
+        O: 7,
+        X: 5,
+        G: 3,
+        P: 8,
+        Y: 1,
+        H: 5,
+        Q: 1,
+        Z: 7,
+        I: 1,
+        R: 2,
+      };
+      var personality = {
+        1: "You radiate with a dynamic and efficient energy.",
+        2: "You appear friendly and unpretentious.",
+        3: "You are uplifting, inspiring, and charming.",
+        4: "You love the intimacy, consistency, and the security a family provides",
+        5: "You are a stimulating person.",
+        6: "You radiate understanding and compassion",
+        7: "You seem mysterious and different.",
+        8: "You appear strong and powerful.",
+        9: "You have an impressive and aristocratic bearing.",
+        11: "You have worked hard to gain confidence and overcome, at least to some extent, an in-born shyness.",
+        22: "You radiate reliability and consistency.",
+        33: "You inspire confidence.",
+      };
+
+      function digit(n) {
+        var dig = 0;
+        while (n != 0) {
+          dig = dig + (n % 10);
+          n = Math.floor(n / 10);
+        }
+        return dig;
+      }
+
       $(function () {
-        $("#h1").slideDown(2000, function () {
-          $("#h2").slideDown(2000, function () {
-            $("#h3").slideDown(2000, function () {
-              $("#h4").slideDown(2000);
-            });
-          });
+        $(".slide").click(function () {
+          var name = document.getElementById("name").value;
+          name.toUpperCase();
+          var sum = 0;
+          for (let i = 0; i < name.length; i++) {
+            const element = name[i];
+            sum += wDictionary[element];
+          }
+          alert(sum);
+          if (sum == 11 || sum == 22 || sum == 33) {
+            document.getElementById("personality").innerHTML = personality[sum];
+          } else {
+            while (sum >= 10) {
+              sum = digit(sum);
+            }
+            document.getElementById("personality").innerHTML = personality[sum];
+          }
+          $("h4").slideDown();
         });
       });
     </script>
   </head>
-  <body>
-    <form name="numerologycalculator">
-      <table width="100%">
-        <tr>
-          <td class="contact" width="100%">
-            <span
-              style="
-                text-align: left;
-                font-weight: bold;
-                color: black;
-                font-size: 15pt;
-              "
-              ><strong>CHALDEAN NUMEROLOGY</strong></span
-            ><br />
-            <br />
-          </td>
-        </tr>
-        <tr>
-          <hr />
-          <td class="calcname">
-            <input
-              type="text"
-              style="
-                text-align: left;
-                font-weight: bold;
-                font-family: 'Courier New', Courier, monospace;
-                color: #c3c2c4;
-                font-size: 12pt;
-              "
-              name="PersonName"
-              size="50"
-              maxlength="90"
-              value="NAME(in capital)"
-              onFocus="numCalc.PersonName.value ='' //removes text
-                       numCalc.PersonName.style.color='black' //resets text colour to black
-                       numCalc.NumerologyLetters.value =''  //clears all boxes below
-                       numCalc.NumerologyNumbers.value =''
-                       numCalc.NumberRoot.value =''
-                       numCalc.SigNum.value =''"
-            />
-            <br />
-            <input
-              type="button"
-              name="calculatebutton"
-              style="
-                font-weight: bold;
-                font-family: 'Courier New', Courier, monospace;
-                font-size: 11pt;
-              "
-              value="SUBMIT"
-              onclick="
-              testName = numCalc.PersonName.value //name typed sent to variable called ExaminedName
-              testNameUpper = testName.toUpperCase(); //name converted to all uppercase letters
-              testNameUpper = testNameUpper.replace(/\s/g, ''); 
-              testNameUpper = testNameUpper.replace(/-/g, '');  
-              testNameUpper = testNameUpper.replace(/\./g, ''); 
-              Chaldean() //replaces letters with numbers
-              numCalc.NumerologyLetters.value = testNameUpper
-              numCalc.NumerologyNumbers.value = testNum
-              GetRoot ()
-              numCalc.NumberRoot.value = NumStrMod;
-              fetchMeaning()"
-            />
-            <br />
-          </td>
-        </tr>
-        <tr>
-          <td class="calcname">
-            <span
-              style="
-                text-align: right;
-                font-weight: bold;
-                color: black;
-                font-size: 12pt;
-              "
-              >Letters:</span
-            ><input
-              type="text"
-              style="
-                text-align: right;
-                font-family: 'Courier New', Courier, monospace;
-                font-weight: bold;
-                color: black;
-                font-size: 14pt;
-              "
-              name="NumerologyLetters"
-              size="40"
-              maxlength="80"
-            />
-          </td>
-        </tr>
 
-        <tr>
-          <td class="calcname">
-            <span
-              style="
-                text-align: right;
-                font-weight: bold;
-                color: black;
-                font-size: 12pt;
-              "
-              >Numbers:</span
-            ><input
-              type="text"
-              style="
-                text-align: right;
-                font-family: 'Courier New', Courier, monospace;
-                font-weight: bold;
-                color: black;
-                font-size: 14pt;
-              "
-              name="NumerologyNumbers"
-              size="40"
-              maxlength="80"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td class="calcname">
-            <span
-              style="
-                text-align: right;
-                font-weight: bold;
-                color: black;
-                font-size: 12pt;
-              "
-              >Chaldean Numerology Name Number:</span
-            >
-            <input
-              type="text"
-              style="
-                text-align: right;
-                font-weight: bold;
-                color: black;
-                font-size: 14pt;
-                font-family: Courier, monospace;
-              "
-              name="NumberRoot"
-              size="2"
-              maxlength="2"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td class="calcname">
-            <input
-              type="text"
-              style="
-                text-align: right;
-                font-weight: italic;
-                color: #7e7ebe;
-                font-size: 14pt;
-                font-family: monospace;
-              "
-              name="NumberSignificance"
-              size="50"
-              maxlength="60"
-            />
-          </td>
-        </tr>
-        <tr>
-          <div>
-            <h1 id="h1" style="display: none">Chaldean Numerology</h1>
-            <h2 id="h2" style="display: none">*</h2>
-            <h3 id="h3" style="display: none">*</h3>
-            <h4 id="h4" style="display: none">
-              <span></span>
-            </h4>
-          </div>
-        </tr>
-      </table>
-    </form>
+  <body
+    style="
+      background-image: linear-gradient(
+        to right,
+        rgb(255, 122, 122),
+        rgb(252, 61, 236)
+      );
+    "
+  >
+    <div
+      id="container"
+      style="
+        height: 400px;
+        width: 400px;
+        border: 1px solid black;
+        border-radius: 5px;
+        position: absolute;
+        background-image: linear-gradient(to right, #ff6464, #703131);
+        box-shadow: 5px 5px 10px #000000;
+        top: 20%;
+        left: 35%;
+      "
+    >
+      <div
+        id="label"
+        style="
+          position: absolute;
+          top: 10px;
+          left: 20px;
+          height: 20px;
+          width: 200px;
+          background-color: rgba(255, 255, 255, 0);
+          text-align: center;
+        "
+      >
+        <strong>Chaldean Destiny</strong>
+      </div>
+
+      <input
+        type="text"
+        id="name"
+        style="
+          position: absolute;
+          top: 50px;
+          left: 120px;
+          border: 1px solid;
+          height: 20px;
+        "
+        placeholder="Enter your name"
+        value="TEENA"
+      />
+      <button
+        class="slide"
+        style="
+          position: absolute;
+          top: 90px;
+          left: 150px;
+          border: 1px solid;
+          height: 20px;
+        "
+      >
+        Click Me
+      </button>
+
+      <h4
+        style="
+          position: absolute;
+          top: 120px;
+          left: 20px;
+          display: none;
+          background-color: aqua;
+        "
+        id="personality"
+      ></h4>
+    </div>
   </body>
 </html>
