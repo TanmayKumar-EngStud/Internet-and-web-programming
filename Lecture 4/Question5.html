@@ -1,86 +1,107 @@
-<!-- Develop a word decoder challenge game using HTML, CSS and JavaScript. Present
-the player with a set of scrambled word & hint and challenge him to unscramble
-them. For each attempt randomly select a word, refresh the browser window
-dynamically and display the scrambled word in red. Once the player thinks the word
-has been properly decoded, he clicks on the Check Answer button to see the results. If 
-the answer is correct, the player is notified via a success message displayed in a
-popup dialog window or displays a failure message. -->
-<!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tanmay Kumar 19BCE2146</title>
-  </head>
-  <body>
-    <h1>Word Decoder</h1>
-    <p>
-      <b>Hint:</b>
-      <span id="hint">
-        <?php
-          $hint = "";
-          if ($random_word == "") {
-            $hint = "";
-          } else {
-            $hint = "";
-            for ($i = 0; $i < strlen($random_word); $i++) {
-              $hint .= "_ ";
-            }
-          }
-          echo $hint;
-        ?>
-      </span>
-    </p>
-    <p>
-      <b>Word:</b>
-      <span id="word">
-        <?php
-          if ($random_word == "") {
-            echo "";
-          } else {
-            echo $random_word;
-          }
-        ?>
-      </span>
-    </p>
-    <p>
-      <b>Guess:</b>
-      <input type="text" id="guess" />
-    </p>
-    <p>
-      <button onclick="checkAnswer()">Check Answer</button>
-    </p>
-    <p id="result"></p>
-    <script>
-      var random_word = "<?php echo $random_word; ?>";
-      var hint = "<?php echo $hint; ?>";
-      var guess = "";
-      var word = "";
-      var result = "";
-      var guess_count = 0;
-      var guess_limit = 5;
+    <title>Word Decoder</title>
+    <script type="text/javascript">
+      var i;
+      var check = [
+        "INDIA",
+        "AMERICA",
+        "CHINA",
+        "JAPAN",
+        "MONKEY",
+        "LION",
+        "HORSE",
+        "ELEPHANT",
+        "STUDY",
+        "JUMP",
+        "SLEEP",
+        "WALK",
+        "RAJASTHAN",
+        "MUMBAI",
+        "KOLKATA",
+        "HARYANA",
+      ];
+      var HintList = ["A country", "An Animal", "A Verb", "A State"];
+      function Shuffle(word) {
+        var arr = word.split("");
+        var temp;
+        var rand;
+        for (i = 0; i < arr.length; i++) {
+          rand = Math.floor(Math.random() * arr.length);
+          temp = arr[i];
+          arr[i] = arr[rand];
+          arr[rand] = temp;
+        }
+        return arr.join("");
+      }
+      ans = "";
+      function generate() {
+        j = Math.random() * check.length;
+        i = Math.floor(j);
+        console.log(i, "  ", check[i]);
+        ans = check[i];
+        document.getElementById("p1").innerHTML = Shuffle(check[i]);
 
-      function checkAnswer() {
-        guess = document.getElementById("guess").value;
-        word = document.getElementById("word").innerHTML;
-        result = document.getElementById("result");
-        result.innerHTML = "";
-
-        if (guess_count < guess_limit && guess != "") {
-          if (guess == random_word) {
-            result.innerHTML = "Correct! The word is " + random_word;
-          } else {
-            result.innerHTML =
-              "Wrong! The word is " + random_word + "<br />" + "Hint: " + hint;
-          }
-          guess_count++;
-        } else if (guess_count == guess_limit) {
-          result.innerHTML = "You lost! The word is " + random_word;
+        console.log(ans);
+        document.getElementById("p2").innerHTML =
+          "Hint is The word is related to :-" + getHint(check.indexOf(ans));
+      }
+      function checks() {
+        form = document.forms[0].elements.ans;
+        var val = form.value.toUpperCase();
+        console.log(ans);
+        if (val == ans) {
+          alert("Correct Answer");
+          form.value = "";
+          generate();
         } else {
-          result.innerHTML = "";
+          alert("Wrong, Correct answer is :-" + ans);
+          form.value = "";
         }
       }
+      function getHint(i) {
+        x = (i - (i % 4)) / 4;
+        return HintList[x];
+      }
     </script>
+  </head>
+  <style>
+    .body {
+      background-color: rgb(115, 173, 211);
+    }
+    #p1 {
+      color: rgb(21, 7, 73);
+      font-size: 40px;
+      font-weight: bolder;
+    }
+    .box {
+      background-color: rgb(87, 100, 129);
+      border: 3px solid black;
+      padding: 80px;
+      width: 60%;
+      position: fixed;
+      margin-left: 200px;
+      margin-top: 100px;
+      align-items: center;
+    }
+    input {
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid black;
+      border-radius: 5px;
+    }
+  </style>
+  <body>
+    <div class="box">
+      <center>
+        <p id="p1"></p>
+        <p id="p2"></p>
+        <input type="button" value="Generate word" onclick="generate();" />
+        <form>
+          <input type="text" name="ans" />
+          <input type="button" value="Check" onclick="checks();" />
+        </form>
+      </center>
+    </div>
   </body>
 </html>
