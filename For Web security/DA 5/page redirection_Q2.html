@@ -1,0 +1,27 @@
+<!-- Page Redirection part 2 -->
+<html>
+  <head>
+    <title>Redirection</title>
+  </head>
+  <body>
+    <h1>Redirection</h1>
+    if you will click 5 times this page will redirect you to another page.
+    <div id="count"></div>
+    <script>
+      var count = 0;
+      var count_max = 5;
+      var count_div = document.getElementById("count");
+      count_div.innerHTML = count;
+      function count_up() {
+        count++;
+        count_div.innerHTML = count;
+        if (count < count_max) {
+          window.document.onclick = count_up;
+        } else {
+          window.location.href = "https://www.youtube.com";
+        }
+      }
+      window.document.onclick = count_up;
+    </script>
+  </body>
+</html>

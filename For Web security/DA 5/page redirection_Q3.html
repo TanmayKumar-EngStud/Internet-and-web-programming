@@ -1,0 +1,21 @@
+<!-- Page Redirection part 3 -->
+<!-- Redirecting the page pressing key ENTER -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Redirection</title>
+  </head>
+  <body>
+    <h1>Just hit enter to go to google</h1>
+    <script>
+      document.onkeydown = function (e) {
+        if (e.keyCode == 13) {
+          window.location.href = "https://www.google.com";
+        }
+      };
+    </script>
+  </body>
+</html>
