@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 6</title>
+  </head>
+  <style>
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      margin-top: 120px;
+      width: 50%;
+      padding: 20px;
+      border: 1px solid black;
+      border-radius: 10px;
+      box-shadow: 2px 2px 2px 2px;
+      background-color: chartreuse;
+      gap: 10px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid black;
+      border-radius: 10px;
+      background-color: white;
+    }
+    legend {
+      font-size: 20px;
+      font-weight: bold;
+      color: black;
+    }
+    div {
+      padding: 10px;
+      margin: 0 auto;
+      width: 50%;
+      border: 1px solid black;
+      border-radius: 10px;
+      margin-top: 15px;
+      display: none;
+    }
+  </style>
+  <body>
+    <form name="numbers">
+      <legend>Enter Numbers Here!!</legend>
+      <input type="text" name="number1" placeholder="Enter first number!!" />
+      <input type="text" name="number2" placeholder="Enter second number!!" />
+      <input
+        type="submit"
+        name="submit"
+        value="Submit"
+        onclick="return validate()"
+      />
+    </form>
+    <div class="answer"></div>
+    <script type="text/javascript">
+      function validate() {
+        event.preventDefault();
+        var number1 = document.forms["numbers"]["number1"].value;
+        var number2 = document.forms["numbers"]["number2"].value;
+        if (number1 == "" || number2 == "") {
+          alert("Please enter both the numbers!!");
+        } else {
+          console.log(number1);
+          console.log(number2);
+          number1 = "" + number1;
+          number2 = "" + number2;
+          // Checking if length of both numbers are same or not...
+          if (number1.length == number2.length) {
+            console.log("Both the numbers are of same length!!");
+            // Checking if the sum of the digits of both numbers are same or not...
+            var sum1 = 0;
+            var sum2 = 0;
+            for (var i = 0; i < number1.length; i++) {
+              sum1 += parseInt(number1[i]);
+              sum2 += parseInt(number2[i]);
+            }
+            console.log(sum1);
+            console.log(sum2);
+            if (sum1 == sum2) {
+              console.log("Both the numbers are anagrams!!");
+              document.getElementsByClassName("answer")[0].style.display =
+                "block";
+              document.getElementsByClassName("answer")[0].innerHTML =
+                "Both the numbers are anagrams!!";
+            } else {
+              console.log("Both the numbers are not anagrams!!");
+              document.getElementsByClassName("answer")[0].style.display =
+                "block";
+              document.getElementsByClassName("answer")[0].innerHTML =
+                "Both the numbers are not anagrams but length of numbers is same !!";
+            }
+          } else {
+            document.getElementsByClassName("answer")[0].style.display =
+              "block";
+            document.getElementsByClassName("answer")[0].innerHTML =
+              "numbers are not equivalent not even length is same!!";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
