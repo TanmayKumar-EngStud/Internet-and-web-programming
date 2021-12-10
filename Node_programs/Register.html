@@ -16,6 +16,10 @@
       }
       .form {
         margin: 0px auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         width: 25%;
         padding: 10px;
         border: 1px solid rgba(151, 170, 170, 0.712);
@@ -67,21 +71,9 @@
     </style>
   </head>
   <body>
-    <div class="form">
-      <form>
-        <label for="name">Name</label>
-        <input type="text" name="Name" id="Name" placeholder="Name" />
-        <label for="age">Age</label>
-        <input type="text" name="Age" id="Age" placeholder="Age" />
-        <label for="DOB">Date of Birth</label>
-        <input type="date" name="DOB" id="DOB" />
-        <label for="email">Email</label>
-        <input type="email" name="Email" id="Email" placeholder="Email" />
-      </form>
-      <button>Submit Form</button>
-    </div>
     <script>
       function bake() {
+        event.preventDefault();
         var name = document.getElementById("Name").value;
         var age = document.getElementById("Age").value;
         var dob = document.getElementById("DOB").value;
@@ -95,13 +87,32 @@
         xhttp.open("POST", "http://localhost:3000/register", true);
         xhttp.setRequestHeader(
           "Content-type",
-          "application/x-www-form-urlencoded"
+          "application/json; charset=utf-8"
         );
         xhttp.send(
-          "Name=" + name + "&Age=" + age + "&DOB=" + dob + "&Email=" + email
+          JSON.stringify({
+            name: name,
+            age: age,
+            dob: dob,
+            email: email,
+          })
         );
         console.log(name, age, dob, email);
       }
     </script>
+    <div class="form">
+      <form>
+        <label for="name">Name</label>
+        <input type="text" name="Name" id="Name" placeholder="Name" />
+        <label for="age">Age</label>
+        <input type="text" name="Age" id="Age" placeholder="Age" />
+        <label for="DOB">Date of Birth</label>
+        <input type="date" name="DOB" id="DOB" />
+        <label for="email">Email</label>
+        <input type="email" name="Email" id="Email" placeholder="Email" />
+        <input type="submit" name="submit" value="Register" onclick="bake" />
+      </form>
+      <!-- <button onClick="bake">Submit Form</button> -->
+    </div>
   </body>
 </html>
